@@ -1,0 +1,29 @@
+  <div class="col-md-4 col-sm-6">
+    <%= render "//shared/category", categories: @categories, category_active: nil %>
+  </div>
+
+  <div class="ol-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="stage">
+    <% if @product %>
+    <div class="page-header text-center">
+        <h2><%= @product.category.try(:name) %></h2>
+    </div>
+    <div class="jumbotron">
+      <div class="row">
+        <h4><%= @product.name %></h4>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <%= image_tag @product.photo.url(:medium) %>
+
+        </div>
+      </div>
+      <p class="description"><%= @product.description %></p>
+      <a href="/homes/<%= @product.id %>/add_to_cart" class='btn btn-success add-to-cart'>Buy</a>
+    </div>
+
+    <% else %>
+      <h1>Product is not found!</h1>
+    <% end %>
+  </div>
+

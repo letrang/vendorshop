@@ -1,0 +1,22 @@
+<h2>Best Selling Products</h2>
+<div class="row placeholders">
+  <% products_price.each do |product| %>
+     <div class="col-xs-6 col-sm-3 placeholder">
+      <a href="/homes/<%= product.id%>/product_detail" class="thumbnail">
+        <%= image_tag product.photo.url(:thumb), alt: product.name%>
+
+      </a>
+      <div class="product-name text-center"><%= truncate(product.name, length: 10) %></div>
+    </div>
+  <% end %>
+</div>
+<h2>Newest Products</h2>
+<div class="row placeholders">
+  <% products_new.each do |product| %>
+    <div class="col-xs-6 col-md-3">
+      <a href="/homes/<%= product.id%>/product_detail" class="thumbnail">
+        <%= image_tag product.photo.url(:thumb), alt: product.name%>
+      </a>
+    </div>
+  <% end %>
+</div>
